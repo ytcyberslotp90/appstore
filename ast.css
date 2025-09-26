@@ -1,0 +1,138 @@
+/* --------- Global --------- */
+* {margin:0; padding:0; box-sizing:border-box;}
+body {
+  font-family: 'Orbitron', sans-serif;
+  background: #0a0a0a;
+  color: #fff;
+  overflow-x: hidden;
+}
+a {text-decoration: none; color: inherit;}
+
+/* --------- Header --------- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: #111;
+  border-bottom: 2px solid #ff4500;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.header-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ff4500, 0 0 20px #ff6347;
+}
+header h1 {
+  color: #ff4500;
+  font-size: 1.8em;
+  margin: 0;
+}
+nav a {
+  margin-left: 30px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+nav a:hover {
+  color: #ff6347;
+}
+
+/* --------- Hero --------- */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #111, #1a1a1a);
+}
+.hero h2 {font-size: 3em; color: #ff4500; margin-bottom: 20px;}
+.hero p {font-size: 1.2em; color: #ccc;}
+
+/* --------- Store Grid --------- */
+.store {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  gap: 30px;
+  padding: 50px;
+}
+
+/* --------- App Card --------- */
+.app-card {
+  background: rgba(30,30,30,0.9);
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(8px);
+  position: relative;
+  padding-bottom: 70px;
+}
+.app-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(255,69,0,0.7);
+}
+.app-card iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border: none;
+  display: block;
+}
+.app-card h2 {margin: 15px 10px 10px; color: #ff4500;}
+.app-card p {margin: 0 10px 15px; font-size: 0.9em; color: #ccc;}
+
+/* --------- Buttons --------- */
+.download-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: linear-gradient(90deg,#ff4500,#ff6347);
+  color: #fff;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+.download-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg,#ff6347,#ff7f50);
+}
+.repo-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 140px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: linear-gradient(90deg,#1e90ff,#00bfff);
+  color: #fff;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+.repo-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg,#00bfff,#1e90ff);
+}
+
+/* --------- Footer --------- */
+footer {
+  background: #111;
+  border-top: 3px solid;
+  border-image: linear-gradient(90deg, #ff4500, #ff7f50) 1;
+  text-align: center;
+  padding: 25px 15px;
+  color: #aaa;
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+}
+footer p {margin: 5px 0;}
+footer a {
+  color: #ff6347;
+  margin: 0 8px;
+  transition: 0.3s;
+}
+footer a:hover {color: #ff7f50;}
