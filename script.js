@@ -3,6 +3,7 @@
 // ═══════════════════════════════════════════
 let apps = [], codes = [], websites = [], allItems = [];
 
+const BASE_PATH = location.pathname.split('/id')[0]
 const CATEGORY_ICONS  = { Terminal: 'fa-solid fa-terminal', GDI: 'fa-solid fa-wand-magic-sparkles', Tools: 'fa-solid fa-toolbox'};
 const CATEGORY_LABELS = { GDI: 'GDI / Visuals' };
 const CATEGORY_COLOR  = { Terminal: 'var(--accent)', GDI: 'var(--accent2)', Tools: 'var(--accent3)'};
@@ -74,7 +75,7 @@ function setNav(id){
 function routeHome(){
   document.getElementById('searchInput').value = ''; // Clears the search text bar
   showPage('home');
-  if (location.pathname !== '/') history.pushState({page:'home'}, '', '/');
+  if (location.pathname !== '/') history.pushState({page:'home'}, '', BASE_PATH);
 }
 
 // ═══════════════════════════════════════════
@@ -194,7 +195,7 @@ function openDetailById(id, pushHistory){
     ].map(([l,v])=>`<div class="info-row"><span class="info-label">${l}</span><span class="info-value" style="word-break:break-all">${escapeHtml(v||'—')}</span></div>`).join('');
   }
 
-  if (pushHistory) history.pushState({id}, '', '/?id=' + encodeURIComponent(id));
+  if (pushHistory) history.pushState({id}, '', BASE_PATH + '?id=' + encodeURIComponent(id));
 }
 
 function copyCode(){
