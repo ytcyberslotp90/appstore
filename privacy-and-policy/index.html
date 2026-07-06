@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en" data-fontsize="md">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy & Policy — Cyber Slot Store</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{
+  --bg:        #0a0c12;
+  --bg2:       #0e1119;
+  --bg3:       #131722;
+  --surface:   rgba(255,255,255,.04);
+  --surface2:  rgba(255,255,255,.07);
+  --surface3:  rgba(255,255,255,.11);
+  --border:    rgba(255,255,255,.08);
+  --border2:   rgba(255,255,255,.15);
+  --text:      #eef1f8;
+  --text2:     #99a3bd;
+  --text3:     #565f78;
+  --shadow:    rgba(0,0,0,.45);
+  --shadow2:   rgba(0,0,0,.7);
+  --glass-bg:  rgba(14,17,25,.78);
+
+  --accent:    #22d3ee;
+  --accent2:   #8b5cf6;
+  --accent3:   #f5a524;
+  --danger:    #fb6f92;
+  --ok:        #2dd4a7;
+  --tint:      rgba(34,211,238,.08);
+}
+
+::-webkit-scrollbar{width:10px;height:10px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--accent),var(--accent2));border-radius:999px;border:2px solid var(--bg);}
+::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,var(--accent2),var(--accent));}
+#mainScroll,.sidebar{scrollbar-color:var(--accent) transparent;scrollbar-width:thin;}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;}
+[data-reduced="true"] *{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
+a{color:inherit;}
+.mono{font-family:'JetBrains Mono',monospace;}
+.font-display{font-family:'Space Grotesk',sans-serif;}
+
+#scrollProgress{position:fixed;top:0;left:0;height:2.5px;width:0%;z-index:999;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .08s linear;}
+
+.bg-grid{position:fixed;inset:-10% -10%;z-index:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size:44px 44px;
+  mask-image:radial-gradient(ellipse 65% 55% at 50% 0%, #000 25%, transparent 72%);
+  -webkit-mask-image:radial-gradient(ellipse 65% 55% at 50% 0%, #000 25%, transparent 72%);}
+.glow{position:fixed;border-radius:50%;filter:blur(100px);pointer-events:none;z-index:0;opacity:.4;}
+.glow.g1{width:440px;height:440px;background:radial-gradient(circle,rgba(34,211,238,.16),transparent 70%);top:-140px;left:-120px;}
+.glow.g2{width:380px;height:380px;background:radial-gradient(circle,rgba(139,92,246,.14),transparent 70%);bottom:-120px;right:-100px;}
+.glow.g3{width:240px;height:240px;background:radial-gradient(circle,rgba(245,165,36,.08),transparent 70%);top:40%;left:55%;}
+
+.glass{background:var(--glass-bg);backdrop-filter:blur(20px) saturate(150%);-webkit-backdrop-filter:blur(20px) saturate(150%);border:1px solid var(--border);}
+.glass-2{background:var(--surface2);backdrop-filter:blur(12px) saturate(130%);-webkit-backdrop-filter:blur(12px) saturate(130%);border:1px solid var(--border);}
+
+.topbar{position:sticky;top:0;z-index:200;background:var(--glass-bg);backdrop-filter:blur(22px) saturate(150%);-webkit-backdrop-filter:blur(22px) saturate(150%);border-bottom:1px solid var(--border);}
+.logo-text{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:-.01em;color:var(--text);}
+.logo-text .dim{color:var(--text3);font-weight:600;}
+.logo-sub{font-size:.6rem;letter-spacing:.16em;color:var(--text3);}
+
+.sidebar{position:sticky;top:57px;height:calc(100vh - 57px);overflow-y:auto;overflow-x:hidden;background:var(--glass-bg);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-right:1px solid var(--border);scrollbar-width:thin;scrollbar-color:var(--border2) transparent;}
+.sidebar-label{font-size:.68rem;font-weight:600;letter-spacing:.06em;color:var(--text3);padding:0 12px;margin-bottom:6px;text-transform:uppercase;}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;font-size:.82rem;font-weight:500;color:var(--text2);cursor:pointer;user-select:none;transition:background .15s,color .15s;}
+.nav-item:hover{background:var(--surface2);color:var(--text);}
+.nav-item.active{background:var(--tint);color:var(--accent);font-weight:600;}
+.nav-item i.ni-ico{width:16px;text-align:center;font-size:.8rem;flex-shrink:0;}
+.nav-status{margin-left:auto;font-size:.65rem;flex-shrink:0;}
+.nav-status.ok{color:var(--ok);}
+.nav-status.none{color:var(--text3);}
+
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease, transform .5s ease;}
+.reveal.in-view{opacity:1;transform:none;}
+
+.eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:.72rem;font-weight:600;letter-spacing:.05em;color:var(--accent);background:var(--tint);border:1px solid rgba(34,211,238,.22);padding:5px 12px;border-radius:999px;margin-bottom:16px;}
+.eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--ok);}
+
+.pill{display:inline-flex;align-items:center;gap:4px;padding:3px 11px;border-radius:999px;font-size:.72rem;font-weight:600;background:var(--tint);color:var(--accent);border:1px solid rgba(34,211,238,.25);}
+.pill-ghost{background:var(--surface2);color:var(--text2);border-color:var(--border);}
+.pill-ok{background:rgba(45,212,167,.1);color:var(--ok);border-color:rgba(45,212,167,.28);}
+
+.card-label{font-size:.68rem;font-weight:600;letter-spacing:.06em;color:var(--text3);text-transform:uppercase;margin-bottom:12px;}
+.info-row{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
+.info-row:last-child{border-bottom:none;}
+
+.sec-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px 24px;}
+.sec-num{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--text3);letter-spacing:.05em;}
+.sec-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;color:var(--text);}
+
+.ledger-row{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-radius:10px;background:var(--surface2);border:1px solid var(--border);}
+.ledger-row + .ledger-row{margin-top:8px;}
+.ledger-status{display:flex;align-items:center;gap:6px;font-size:.72rem;font-weight:600;color:var(--ok);}
+.ledger-status i{font-size:.68rem;}
+
+.btn-accent{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:9px;background:linear-gradient(120deg,var(--accent),var(--accent2));color:#0a0c12;font-size:.83rem;font-weight:700;cursor:pointer;border:none;text-decoration:none;transition:transform .15s,box-shadow .15s;box-shadow:0 4px 16px rgba(34,211,238,.2);}
+.btn-accent:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(34,211,238,.28);}
+.btn-glass{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:9px;background:var(--surface2);color:var(--text);border:1px solid var(--border2);font-size:.83rem;font-weight:600;cursor:pointer;text-decoration:none;transition:background .15s,transform .15s;}
+.btn-glass:hover{background:var(--surface3);transform:translateY(-2px);}
+
+.divider-fine{height:1px;background:linear-gradient(90deg,transparent,var(--border2),transparent);}
+
+.no-check{color:var(--danger);}
+.yes-check{color:var(--ok);}
+
+@keyframes floatSlow{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.float-slow{animation:floatSlow 6s ease-in-out infinite;}
+</style>
+</head>
+<body data-compact="false">
+
+<div id="scrollProgress"></div>
+<div class="bg-grid"></div>
+<div class="glow g1"></div>
+<div class="glow g2"></div>
+<div class="glow g3"></div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="max-w-[1400px] mx-auto flex items-center gap-4 px-5 py-3">
+    <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style="background:linear-gradient(135deg,var(--accent),var(--accent2));">
+      <i class="fa-solid fa-shield-halved text-[#0a0c12] text-sm"></i>
+    </div>
+    <div>
+      <div class="logo-text">Cyber Slot <span class="dim">Store</span></div>
+      <div class="logo-sub">OPEN-SOURCE CATALOG</div>
+    </div>
+    <div class="flex-1"></div>
+    <div class="hidden sm:flex items-center gap-2">
+      <span class="pill pill-ok"><i class="fa-solid fa-lock"></i>&nbsp;No tracking</span>
+      <span class="pill pill-ghost">v2026.07</span>
+    </div>
+  </div>
+</div>
+
+<div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[240px_1fr] relative z-10">
+
+  <!-- SIDEBAR = LIVE TRANSPARENCY LEDGER -->
+  <aside class="sidebar hidden lg:block px-3 py-5">
+    <div class="sidebar-label">On this page</div>
+    <nav class="flex flex-col gap-1 mb-6">
+      <div class="nav-item active" onclick="jump('s1')"><i class="ni-ico fa-solid fa-database"></i>Information We Collect<span class="nav-status ok">●</span></div>
+      <div class="nav-item" onclick="jump('s2')"><i class="ni-ico fa-solid fa-hard-drive"></i>Stored Locally<span class="nav-status ok">●</span></div>
+      <div class="nav-item" onclick="jump('s3')"><i class="ni-ico fa-solid fa-download"></i>Downloads<span class="nav-status ok">●</span></div>
+      <div class="nav-item" onclick="jump('s4')"><i class="ni-ico fa-solid fa-cookie-bite"></i>Cookies<span class="nav-status none">–</span></div>
+      <div class="nav-item" onclick="jump('s5')"><i class="ni-ico fa-solid fa-chart-line"></i>Analytics<span class="nav-status none">–</span></div>
+      <div class="nav-item" onclick="jump('s6')"><i class="ni-ico fa-solid fa-diagram-project"></i>Third-Party Services<span class="nav-status ok">●</span></div>
+      <div class="nav-item" onclick="jump('s7')"><i class="ni-ico fa-brands fa-github"></i>Open Source<span class="nav-status ok">●</span></div>
+      <div class="nav-item" onclick="jump('s8')"><i class="ni-ico fa-solid fa-user-shield"></i>Security<span class="nav-status ok">●</span></div>
+      <div class="nav-item" onclick="jump('s9')"><i class="ni-ico fa-solid fa-envelope"></i>Contact</div>
+      <div class="nav-item" onclick="jump('terms')"><i class="ni-ico fa-solid fa-scroll"></i>Terms of Use</div>
+      <div class="nav-item" onclick="jump('disclaimer')"><i class="ni-ico fa-solid fa-circle-exclamation"></i>Disclaimer</div>
+      <div class="nav-item" onclick="jump('report')"><i class="ni-ico fa-solid fa-table-list"></i>Transparency Report</div>
+    </nav>
+    <div class="sidebar-label">Ledger status</div>
+    <div class="text-[.68rem] leading-relaxed px-3" style="color:var(--text3)">
+      <span class="yes-check"><i class="fa-solid fa-circle text-[6px] align-middle"></i></span> = active protection<br>
+      <span style="color:var(--text3)"><i class="fa-solid fa-circle text-[6px] align-middle"></i></span> = not applicable — nothing to disclose
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main id="mainScroll" class="px-5 sm:px-8 py-10 max-w-[880px]">
+
+    <!-- HERO -->
+    <div class="mb-12 reveal in-view">
+      <div class="eyebrow"><span class="d"></span>ZERO DATA COLLECTED · LAST UPDATED JULY 2026</div>
+      <h1 class="font-display font-bold leading-[1.05] mb-4" style="font-size:clamp(2rem,4.2vw,2.9rem);color:var(--text);">
+        Privacy &amp; <span style="background:linear-gradient(120deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Policy</span>
+      </h1>
+      <p class="text-[.95rem] leading-relaxed max-w-[560px] mb-6" style="color:var(--text2);">
+        Cyber Slot Store is an open-source software catalog. This page is written to be read, not skimmed past — here's exactly what we collect (nothing), what stays on your device, and how the catalog works.
+      </p>
+      <div class="flex flex-wrap gap-2">
+        <span class="pill pill-ok"><i class="fa-solid fa-check"></i>&nbsp;No login required</span>
+        <span class="pill pill-ok"><i class="fa-solid fa-check"></i>&nbsp;No payment requests</span>
+        <span class="pill pill-ok"><i class="fa-solid fa-check"></i>&nbsp;No advertisements</span>
+        <span class="pill pill-ok"><i class="fa-solid fa-check"></i>&nbsp;No telemetry</span>
+      </div>
+    </div>
+
+    <div class="divider-fine mb-10"></div>
+
+    <!-- SECTION 1 -->
+    <section id="s1" class="sec-card mb-6 reveal">
+      <div class="flex items-start gap-4">
+        <div class="w-11 h-11 rounded-[11px] flex items-center justify-center flex-shrink-0" style="background:var(--tint);">
+          <i class="fa-solid fa-database" style="color:var(--accent)"></i>
+        </div>
+        <div class="flex-1">
+          <div class="sec-num mb-1">01 / INFORMATION WE COLLECT</div>
+          <div class="sec-title mb-3">We don't collect personal information</div>
+          <p class="text-[.85rem] leading-relaxed mb-4" style="color:var(--text2)">
+            Cyber Slot Store does not collect any personal information. Full stop. Here's the explicit list of things that never touch our servers:
+          </p>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+            <div class="ledger-row"><span class="text-[.78rem]" style="color:var(--text2)">Names</span></div>
+            <div class="ledger-row"><span class="text-[.78rem]" style="color:var(--text2)">Email addresses</span></div>
+            <div class="ledger-row"><span class="text-[.78rem]" style="color:var(--text2)">Passwords</span></div>
+            <div class="ledger-row"><span class="text-[.78rem]" style="color:var(--text2)">Phone numbers</span></div>
+            <div class="ledger-row"><span class="text-[.78rem]" style="color:var(--text2)">Card details</span></div>
+            <div class="ledger-row"><span class="text-[.78rem]" style="color:var(--text2)">Banking info</span></div>
+            <div class="ledger-row"><span class="text-[.78rem]" style="color:var(--text2)">Government IDs</span></div>
+            <div class="ledger-row"><span class="text-[.78rem]" style="color:var(--text2)">Personal files</span></div>
+            <div class="ledger-row"><span class="text-[.78rem]" style="color:var(--text2)">Device identifiers</span></div>
+            <div class="ledger-row"><span class="text-[.78rem]" style="color:var(--text2)">Browser history</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="s2" class="sec-card mb-6 reveal">
+      <div class="flex items-start gap-4">
+        <div class="w-11 h-11 rounded-[11px] flex items-center justify-center flex-shrink-0" style="background:var(--tint);">
+          <i class="fa-solid fa-hard-drive" style="color:var(--accent)"></i>
+        </div>
+        <div class="flex-1">
+          <div class="sec-num mb-1">02 / STORED LOCALLY</div>
+          <div class="sec-title mb-3">Preferences stay in your browser</div>
+          <p class="text-[.85rem] leading-relaxed mb-4" style="color:var(--text2)">
+            To improve your experience, a few interface preferences are saved only inside your own browser and are never transmitted to our servers.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="pill pill-ghost">Theme</span>
+            <span class="pill pill-ghost">Accent color</span>
+            <span class="pill pill-ghost">Compact layout</span>
+            <span class="pill pill-ghost">Grid density</span>
+            <span class="pill pill-ghost">UI preferences</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="s3" class="sec-card mb-6 reveal">
+      <div class="flex items-start gap-4">
+        <div class="w-11 h-11 rounded-[11px] flex items-center justify-center flex-shrink-0" style="background:var(--tint);">
+          <i class="fa-solid fa-download" style="color:var(--accent)"></i>
+        </div>
+        <div class="flex-1">
+          <div class="sec-num mb-1">03 / DOWNLOADS</div>
+          <div class="sec-title mb-3">Nothing is hosted on our servers</div>
+          <p class="text-[.85rem] leading-relaxed mb-3" style="color:var(--text2)">
+            Cyber Slot Store does not host software downloads itself. Every download routes through the original source:
+          </p>
+          <div class="flex flex-col gap-2">
+            <div class="ledger-row"><span class="text-[.8rem] flex items-center gap-2" style="color:var(--text)"><i class="fa-brands fa-github" style="color:var(--text2)"></i>Official GitHub repositories</span><span class="ledger-status"><i class="fa-solid fa-circle"></i>verified</span></div>
+            <div class="ledger-row"><span class="text-[.8rem] flex items-center gap-2" style="color:var(--text)"><i class="fa-solid fa-tag" style="color:var(--text2)"></i>Official GitHub releases</span><span class="ledger-status"><i class="fa-solid fa-circle"></i>verified</span></div>
+            <div class="ledger-row"><span class="text-[.8rem] flex items-center gap-2" style="color:var(--text)"><i class="fa-solid fa-link" style="color:var(--text2)"></i>Other trusted developer pages</span><span class="ledger-status"><i class="fa-solid fa-circle"></i>when listed</span></div>
+          </div>
+          <p class="text-[.78rem] mt-3" style="color:var(--text3)">Source code is available for review whenever possible.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="s4" class="sec-card mb-6 reveal">
+      <div class="flex items-start gap-4">
+        <div class="w-11 h-11 rounded-[11px] flex items-center justify-center flex-shrink-0" style="background:var(--surface2);">
+          <i class="fa-solid fa-cookie-bite" style="color:var(--text3)"></i>
+        </div>
+        <div class="flex-1">
+          <div class="sec-num mb-1">04 / COOKIES</div>
+          <div class="sec-title mb-3">No tracking cookies, ever</div>
+          <p class="text-[.85rem] leading-relaxed" style="color:var(--text2)">
+            Cyber Slot Store does not use tracking cookies. Your browser may store local preferences for interface customization, but these never leave your device.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="s5" class="sec-card mb-6 reveal">
+      <div class="flex items-start gap-4">
+        <div class="w-11 h-11 rounded-[11px] flex items-center justify-center flex-shrink-0" style="background:var(--surface2);">
+          <i class="fa-solid fa-chart-line" style="color:var(--text3)"></i>
+        </div>
+        <div class="flex-1">
+          <div class="sec-num mb-1">05 / ANALYTICS</div>
+          <div class="sec-title mb-3">Nothing is watching you use this site</div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+            <div class="ledger-row"><span class="text-[.78rem]" style="color:var(--text2)">Google Analytics</span><span class="no-check text-[.72rem] ml-auto"><i class="fa-solid fa-xmark"></i></span></div>
+            <div class="ledger-row"><span class="text-[.78rem]" style="color:var(--text2)">Facebook Pixel</span><span class="no-check text-[.72rem] ml-auto"><i class="fa-solid fa-xmark"></i></span></div>
+            <div class="ledger-row"><span class="text-[.78rem]" style="color:var(--text2)">Ad trackers</span><span class="no-check text-[.72rem] ml-auto"><i class="fa-solid fa-xmark"></i></span></div>
+            <div class="ledger-row"><span class="text-[.78rem]" style="color:var(--text2)">Fingerprinting</span><span class="no-check text-[.72rem] ml-auto"><i class="fa-solid fa-xmark"></i></span></div>
+            <div class="ledger-row"><span class="text-[.78rem]" style="color:var(--text2)">Heatmaps</span><span class="no-check text-[.72rem] ml-auto"><i class="fa-solid fa-xmark"></i></span></div>
+            <div class="ledger-row"><span class="text-[.78rem]" style="color:var(--text2)">Session recording</span><span class="no-check text-[.72rem] ml-auto"><i class="fa-solid fa-xmark"></i></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="s6" class="sec-card mb-6 reveal">
+      <div class="flex items-start gap-4">
+        <div class="w-11 h-11 rounded-[11px] flex items-center justify-center flex-shrink-0" style="background:var(--tint);">
+          <i class="fa-solid fa-diagram-project" style="color:var(--accent)"></i>
+        </div>
+        <div class="flex-1">
+          <div class="sec-num mb-1">06 / THIRD-PARTY SERVICES</div>
+          <div class="sec-title mb-3">Trusted providers we load resources from</div>
+          <p class="text-[.85rem] leading-relaxed mb-4" style="color:var(--text2)">
+            This site may load resources from a small set of trusted providers. Each operates under its own privacy policy.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="pill pill-ghost"><i class="fa-brands fa-github"></i>&nbsp;GitHub</span>
+            <span class="pill pill-ghost"><i class="fa-solid fa-tag"></i>&nbsp;GitHub Releases</span>
+            <span class="pill pill-ghost"><i class="fa-brands fa-youtube"></i>&nbsp;YouTube</span>
+            <span class="pill pill-ghost"><i class="fa-solid fa-font"></i>&nbsp;Google Fonts</span>
+            <span class="pill pill-ghost"><i class="fa-solid fa-icons"></i>&nbsp;Font Awesome</span>
+            <span class="pill pill-ghost"><i class="fa-solid fa-wind"></i>&nbsp;Tailwind CDN</span>
+            <span class="pill pill-ghost"><i class="fa-solid fa-code"></i>&nbsp;Monaco Editor CDN</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section id="s7" class="sec-card mb-6 reveal">
+      <div class="flex items-start gap-4">
+        <div class="w-11 h-11 rounded-[11px] flex items-center justify-center flex-shrink-0" style="background:var(--tint);">
+          <i class="fa-brands fa-github" style="color:var(--accent)"></i>
+        </div>
+        <div class="flex-1">
+          <div class="sec-num mb-1">07 / OPEN SOURCE</div>
+          <div class="sec-title mb-3">Most listed software is open source</div>
+          <p class="text-[.85rem] leading-relaxed" style="color:var(--text2)">
+            Whenever applicable, links to the original source repository are provided, and each project remains under its own respective license.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8 -->
+    <section id="s8" class="sec-card mb-6 reveal">
+      <div class="flex items-start gap-4">
+        <div class="w-11 h-11 rounded-[11px] flex items-center justify-center flex-shrink-0" style="background:rgba(251,111,146,.1);">
+          <i class="fa-solid fa-user-shield" style="color:var(--danger)"></i>
+        </div>
+        <div class="flex-1">
+          <div class="sec-num mb-1">08 / SECURITY</div>
+          <div class="sec-title mb-3">What we will never ask you for</div>
+          <p class="text-[.85rem] leading-relaxed mb-4" style="color:var(--text2)">
+            Cyber Slot Store will never ask for the following. If any page claims otherwise, it is not an official Cyber Slot Store page.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div class="ledger-row"><span class="text-[.8rem]" style="color:var(--text2)">Passwords</span><span class="no-check ml-auto"><i class="fa-solid fa-xmark"></i></span></div>
+            <div class="ledger-row"><span class="text-[.8rem]" style="color:var(--text2)">OTP codes</span><span class="no-check ml-auto"><i class="fa-solid fa-xmark"></i></span></div>
+            <div class="ledger-row"><span class="text-[.8rem]" style="color:var(--text2)">Banking information</span><span class="no-check ml-auto"><i class="fa-solid fa-xmark"></i></span></div>
+            <div class="ledger-row"><span class="text-[.8rem]" style="color:var(--text2)">Credit card details</span><span class="no-check ml-auto"><i class="fa-solid fa-xmark"></i></span></div>
+            <div class="ledger-row"><span class="text-[.8rem]" style="color:var(--text2)">Government ID</span><span class="no-check ml-auto"><i class="fa-solid fa-xmark"></i></span></div>
+            <div class="ledger-row"><span class="text-[.8rem]" style="color:var(--text2)">Personal documents</span><span class="no-check ml-auto"><i class="fa-solid fa-xmark"></i></span></div>
+            <div class="ledger-row"><span class="text-[.8rem]" style="color:var(--text2)">Disabling Windows Defender</span><span class="no-check ml-auto"><i class="fa-solid fa-xmark"></i></span></div>
+            <div class="ledger-row"><span class="text-[.8rem]" style="color:var(--text2)">Disabling your antivirus</span><span class="no-check ml-auto"><i class="fa-solid fa-xmark"></i></span></div>
+            <div class="ledger-row"><span class="text-[.8rem]" style="color:var(--text2)">Running unknown commands</span><span class="no-check ml-auto"><i class="fa-solid fa-xmark"></i></span></div>
+            <div class="ledger-row"><span class="text-[.8rem]" style="color:var(--text2)">Impersonating other companies</span><span class="no-check ml-auto"><i class="fa-solid fa-xmark"></i></span></div>
+          </div>
+          <p class="text-[.78rem] mt-4 font-medium" style="color:var(--accent3)"><i class="fa-solid fa-triangle-exclamation mr-1"></i>Always verify software before running it.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: CONTACT -->
+    <section id="s9" class="sec-card mb-10 reveal">
+      <div class="flex items-start gap-4">
+        <div class="w-11 h-11 rounded-[11px] flex items-center justify-center flex-shrink-0" style="background:var(--tint);">
+          <i class="fa-solid fa-envelope" style="color:var(--accent)"></i>
+        </div>
+        <div class="flex-1">
+          <div class="sec-num mb-1">09 / CONTACT</div>
+          <div class="sec-title mb-4">Reach out</div>
+          <div class="flex flex-col gap-2">
+            <a href="https://github.com/ytcyberslotp90" target="_blank" class="ledger-row hover:!border-[var(--accent)] transition" style="text-decoration:none;">
+              <span class="text-[.82rem] flex items-center gap-2" style="color:var(--text)"><i class="fa-brands fa-github"></i>github.com/ytcyberslotp90</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[.68rem]" style="color:var(--text3)"></i>
+            </a>
+            <a href="https://www.youtube.com/@cyberslot-90" target="_blank" class="ledger-row hover:!border-[var(--accent)] transition" style="text-decoration:none;">
+              <span class="text-[.82rem] flex items-center gap-2" style="color:var(--text)"><i class="fa-brands fa-youtube"></i>@cyberslot-90</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[.68rem]" style="color:var(--text3)"></i>
+            </a>
+            <a href="mailto:krishnendumaji3633@gmail.com" class="ledger-row hover:!border-[var(--accent)] transition" style="text-decoration:none;">
+              <span class="text-[.82rem] flex items-center gap-2 mono" style="color:var(--text)"><i class="fa-solid fa-at"></i>krishnendumaji3633@gmail.com</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[.68rem]" style="color:var(--text3)"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider-fine mb-10"></div>
+
+    <!-- TERMS OF USE -->
+    <div id="terms" class="mb-10 reveal">
+      <div class="flex items-baseline justify-between mb-5">
+        <h2 class="font-display font-bold text-xl" style="color:var(--text)"><i class="fa-solid fa-scroll mr-2" style="color:var(--accent2)"></i>Terms of Use</h2>
+        <span class="pill pill-ghost">by using this site, you agree</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="sec-card">
+          <div class="card-label">Acceptable use</div>
+          <div class="info-row"><i class="fa-solid fa-check yes-check w-4 mt-1"></i><span class="text-[.82rem]" style="color:var(--text2)">Use software responsibly</span></div>
+          <div class="info-row"><i class="fa-solid fa-check yes-check w-4 mt-1"></i><span class="text-[.82rem]" style="color:var(--text2)">Respect project licenses</span></div>
+          <div class="info-row"><i class="fa-solid fa-check yes-check w-4 mt-1"></i><span class="text-[.82rem]" style="color:var(--text2)">Follow GitHub's Terms of Service</span></div>
+          <div class="info-row"><i class="fa-solid fa-check yes-check w-4 mt-1"></i><span class="text-[.82rem]" style="color:var(--text2)">Comply with applicable laws</span></div>
+        </div>
+
+        <div class="sec-card">
+          <div class="card-label">Software disclaimer</div>
+          <p class="text-[.82rem] leading-relaxed" style="color:var(--text2)">
+            All software is provided <span class="mono" style="color:var(--accent3)">"AS IS"</span> without warranties of any kind. Cyber Slot Store cannot guarantee compatibility, performance, or fitness for a particular purpose.
+          </p>
+        </div>
+
+        <div class="sec-card">
+          <div class="card-label">External software &amp; links</div>
+          <p class="text-[.82rem] leading-relaxed" style="color:var(--text2)">
+            Applications may be created by independent developers — please review each project's documentation before use. External links are not vetted by us; we aren't responsible for their content or privacy practices.
+          </p>
+        </div>
+
+        <div class="sec-card">
+          <div class="card-label">Licenses</div>
+          <div class="flex flex-wrap gap-2 mb-2">
+            <span class="pill pill-ghost">MIT</span>
+            <span class="pill pill-ghost">GPL</span>
+            <span class="pill pill-ghost">Apache</span>
+            <span class="pill pill-ghost">BSD</span>
+            <span class="pill pill-ghost">Custom</span>
+          </div>
+          <p class="text-[.78rem]" style="color:var(--text3)">Review each project's license before redistribution or modification.</p>
+        </div>
+      </div>
+      <p class="text-[.78rem] mt-4" style="color:var(--text3)"><i class="fa-solid fa-circle-info mr-1"></i>This page may be updated from time to time — the latest version always lives here.</p>
+    </div>
+
+    <!-- DISCLAIMER -->
+    <div id="disclaimer" class="sec-card mb-10 reveal" style="border-color:rgba(251,111,146,.25);">
+      <div class="flex items-start gap-4">
+        <div class="w-11 h-11 rounded-[11px] flex items-center justify-center flex-shrink-0" style="background:rgba(251,111,146,.1);">
+          <i class="fa-solid fa-scale-balanced" style="color:var(--danger)"></i>
+        </div>
+        <div class="flex-1">
+          <div class="sec-num mb-1">DISCLAIMER</div>
+          <div class="sec-title mb-3">Independent, unaffiliated</div>
+          <p class="text-[.85rem] leading-relaxed mb-4" style="color:var(--text2)">
+            Cyber Slot Store is an independent open-source project. Unless explicitly stated, it is not affiliated with, endorsed by, or sponsored by:
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="pill pill-ghost">Microsoft</span>
+            <span class="pill pill-ghost">Google</span>
+            <span class="pill pill-ghost">GitHub</span>
+            <span class="pill pill-ghost">Mozilla</span>
+            <span class="pill pill-ghost">Valve</span>
+            <span class="pill pill-ghost">Discord</span>
+            <span class="pill pill-ghost">Apple</span>
+            <span class="pill pill-ghost">or any other referenced company</span>
+          </div>
+          <p class="text-[.78rem]" style="color:var(--text3)">All trademarks remain the property of their respective owners.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TRANSPARENCY REPORT -->
+    <div id="report" class="mb-10 reveal">
+      <div class="flex items-baseline justify-between mb-5">
+        <h2 class="font-display font-bold text-xl" style="color:var(--text)"><i class="fa-solid fa-table-list mr-2" style="color:var(--accent)"></i>Transparency Report</h2>
+        <span class="pill pill-ok"><i class="fa-solid fa-heart"></i>&nbsp;Full disclosure</span>
+      </div>
+      <div class="sec-card !p-0 overflow-hidden">
+        <table class="w-full text-[.82rem]" style="border-collapse:collapse;">
+          <thead>
+            <tr style="background:var(--surface2)">
+              <th class="text-left px-5 py-3 font-semibold" style="color:var(--text2)">Category</th>
+              <th class="text-left px-5 py-3 font-semibold" style="color:var(--text2)">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- rows injected -->
+          </tbody>
+        </table>
+        <div id="reportRows"></div>
+      </div>
+    </div>
+
+    <!-- SUMMARY BADGES -->
+    <div class="sec-card mb-10 reveal" style="background:linear-gradient(150deg,var(--bg2),var(--bg3));border-color:var(--border2);">
+      <div class="card-label">Privacy summary</div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div class="ledger-row justify-center flex-col text-center py-4"><i class="fa-solid fa-check yes-check text-lg mb-2"></i><span class="text-[.75rem]" style="color:var(--text2)">No login required</span></div>
+        <div class="ledger-row justify-center flex-col text-center py-4"><i class="fa-solid fa-check yes-check text-lg mb-2"></i><span class="text-[.75rem]" style="color:var(--text2)">No password collection</span></div>
+        <div class="ledger-row justify-center flex-col text-center py-4"><i class="fa-solid fa-check yes-check text-lg mb-2"></i><span class="text-[.75rem]" style="color:var(--text2)">No payment requests</span></div>
+        <div class="ledger-row justify-center flex-col text-center py-4"><i class="fa-solid fa-check yes-check text-lg mb-2"></i><span class="text-[.75rem]" style="color:var(--text2)">No user tracking</span></div>
+        <div class="ledger-row justify-center flex-col text-center py-4"><i class="fa-solid fa-check yes-check text-lg mb-2"></i><span class="text-[.75rem]" style="color:var(--text2)">No advertisements</span></div>
+        <div class="ledger-row justify-center flex-col text-center py-4"><i class="fa-solid fa-check yes-check text-lg mb-2"></i><span class="text-[.75rem]" style="color:var(--text2)">No telemetry</span></div>
+        <div class="ledger-row justify-center flex-col text-center py-4"><i class="fa-solid fa-check yes-check text-lg mb-2"></i><span class="text-[.75rem]" style="color:var(--text2)">Local settings only</span></div>
+        <div class="ledger-row justify-center flex-col text-center py-4"><i class="fa-solid fa-check yes-check text-lg mb-2"></i><span class="text-[.75rem]" style="color:var(--text2)">Open source friendly</span></div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="text-center py-8 border-t" style="border-color:var(--border)">
+      <div class="logo-text mb-1">Cyber Slot <span class="dim">Store</span></div>
+      <p class="text-[.75rem]" style="color:var(--text3)">© 2025–2026 Cyber Slot. Built with transparency, privacy, and open-source principles.</p>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+// scroll progress
+window.addEventListener('scroll', ()=>{
+  const h = document.documentElement;
+  const pct = (h.scrollTop)/(h.scrollHeight-h.clientHeight)*100;
+  document.getElementById('scrollProgress').style.width = pct+'%';
+});
+
+function jump(id){
+  document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+// nav active state on scroll
+const navItems = document.querySelectorAll('.nav-item');
+const secIds = ['s1','s2','s3','s4','s5','s6','s7','s8','s9','terms','disclaimer','report'];
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const idx = secIds.indexOf(e.target.id);
+      navItems.forEach((n,i)=> n.classList.toggle('active', i===idx));
+    }
+  });
+},{rootMargin:'-30% 0px -60% 0px'});
+secIds.forEach(id=>{
+  const el = document.getElementById(id);
+  if(el) observer.observe(el);
+});
+
+// reveal on scroll
+const revealObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in-view'); });
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+
+// transparency table rows
+const rows = [
+  ['Personal Data Collected','None', true],
+  ['Tracking Cookies','None', true],
+  ['Advertisements','None', true],
+  ['Telemetry','None', true],
+  ['User Fingerprinting','None', true],
+  ['Open Source Projects','Supported', true],
+  ['Download Source','Official repositories whenever available', true],
+  ['Local Settings','Stored only on your device', true],
+];
+const tbody = document.querySelector('table tbody');
+rows.forEach(([cat,status])=>{
+  const tr = document.createElement('tr');
+  tr.style.borderTop = '1px solid var(--border)';
+  tr.innerHTML = `<td class="px-5 py-3" style="color:var(--text)">${cat}</td>
+    <td class="px-5 py-3"><span class="ledger-status"><i class="fa-solid fa-check"></i>${status}</span></td>`;
+  tbody.appendChild(tr);
+});
+document.getElementById('reportRows').remove();
+</script>
+</body>
+</html>
