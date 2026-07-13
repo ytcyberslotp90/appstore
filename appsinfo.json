@@ -79,6 +79,26 @@
       "repo": "https://github.com/ytcyberslotp90/iridium",
       "yt": "https://www.youtube.com/watch?v=bTG4yuL_pmg",
       "featured": true
+    },
+    {
+      "id": "terimagesharp",
+      "name": "TerImageSharp",
+      "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Windows_11_executable.svg",
+      "iconBg": "linear-gradient(135deg,#14532d,#166534)",
+      "iconFallback": "📷",
+      "category": "Tools",
+      "version": "v1.0",
+      "platform": "Windows 10/11",
+      "language": "C#",
+      "size": "158 KB",
+      "license": "MIT",
+      "desc": "A Pixel-Perfect image renderer for Terminal Graphics in C#",
+      "about": "A Pixel-Perfect image renderer for Terminal Graphics in C#",
+      "tags": ["Terminal", "Tool", "C#", "Image"],
+      "dl": "https://github.com/ytcyberslotp90/TerImageSharp/archive/refs/heads/main.zip",
+      "repo": "https://github.com/ytcyberslotp90/TerImageSharp/",
+      "yt": "about:blank",
+      "featured": true
     }
   ],
   "codes": [
@@ -119,7 +139,7 @@
     {
       "id": "xoriphium",
       "name": "Xoriphium",
-      "url": "https://xoriphium-csp90.pages.dev/",
+      "url": "https://ytcyberslotp90.github.io/xoriphium/",
       "category": "Emulator",
       "description": "A cool looking web-based emulator for 32-bit OS with x86-32 architecture, v86 Emulator and WASM.",
       "tags": ["Emulator", "Web", "x86", "WASM"]
